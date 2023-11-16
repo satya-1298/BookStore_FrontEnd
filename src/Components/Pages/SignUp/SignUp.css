@@ -1,0 +1,117 @@
+.Main-SignUp
+{
+    display:flex;
+    justify-content:center;
+    margin-top:17ch ;
+    margin-left: 10ch;
+    width:45vw;
+    height: 60vh;
+    /* border: 1px solid black; */
+    /* background-color: rgb(95, 145, 188); */
+}
+.signup-container
+{
+    display: flex;
+    border:  1px solid white;
+    width: 25vw;
+    height: 65vh;
+    /* z-index: -1px; */
+    position: absolute;
+    margin-left: 39ch;
+    background-color: rgb(255, 255, 250);
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(1, 1, 1, 2);
+}
+.photo-container
+{
+    display: flex;
+    justify-content:flex-start;
+    margin-top: 4ch;
+    width: 27vw;
+    height: 55vh;
+    position: relative;
+    margin-right: 30ch;
+    background-color: rgb(255, 255, 250);
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+}
+.pic{
+     width: 15vw;
+     height: 33vh;
+      border-radius: 50%;
+      margin-left: 30px;
+      margin-top: 20px;
+}
+.main {
+    display:flex;
+    justify-content:center;
+    /* margin-top:20ch ; */
+    /* margin-left: 50ch; */
+    width:99vw;
+    height: 97vh;
+    /* border: 1px solid black; */
+    background-color: #e0e0e0; 
+}
+.pic-div{
+    margin-top: 3ch;
+    width: 90vh;
+}
+.para-div{
+    margin-top: 3ch;
+    margin-left: 7ch;
+}
+.heading-su
+{
+    height: 50px;
+    display: flex;
+    justify-content:space-between;
+}
+.login
+{
+    margin-left: 6ch;
+    font-size: 20px;
+    color: gray;
+    cursor: pointer;
+
+}
+.signup{
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 2ch;
+}
+.Uname {
+    width: 17vw;
+    height: 4vh;
+}
+.signup-info
+{
+    /* margin-top: 4ch; */
+    margin-left: 7ch;
+    flex-direction: column;
+}
+#submit-su {
+    width: 17vw;
+    height: 4vh;
+    color: #e0e0e0;
+    background-color: rgb(119, 3, 3);
+}
+.dash
+{
+    width: 18px;
+    height: 6px;
+    background-color: rgb(119, 3, 3);
+    margin-left: 26ch;
+}
+.uerror{
+    color: red;
+}
+#filled-basic{
+     border: 1px solid black;
+     width: 17vw;
+     border-radius: 4px;
+     /* height: 2px; */
+     display: flex;
+     justify-content: center;
+     padding: 10px;
+}

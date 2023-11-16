@@ -1,0 +1,154 @@
+.Main-SignIn
+{
+    display:flex;
+    justify-content:center;
+    margin-top:17ch ;
+    margin-left: 10ch;
+    width:45vw;
+    height: 60vh;
+    /* border: 1px solid black; */
+    /* background-color: rgb(95, 145, 188); */
+}
+.signin-container
+{
+    display: flex;
+    border:  1px solid white;
+    width: 25vw;
+    height: 65vh;
+    /* z-index: -1px; */
+    position: absolute;
+    margin-left: 39ch;
+    background-color: rgb(255, 255, 250);
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(1, 1, 1, 2);
+}
+.photo-container-si
+{
+    display: flex;
+    justify-content:flex-start;
+    margin-top: 4ch;
+    width: 27vw;
+    height: 55vh;
+    position: relative;
+    margin-right: 30ch;
+    background-color: rgb(255, 255, 250);
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+}
+.pic-si{
+     width: 15vw;
+     height: 33vh;
+      border-radius: 50%;
+      margin-left: 30px;
+      margin-top: 20px;
+}
+.main-si {
+    display:flex;
+    justify-content:center;
+    /* margin-top:20ch ; */
+    /* margin-left: 50ch; */
+    width:99vw;
+    height: 97vh;
+    /* border: 1px solid black; */
+    background-color: #e0e0e0; 
+}
+.pic-div-si{
+    margin-top: 3ch;
+    width: 90vh;
+}
+.para-div-si{
+    margin-top: 3ch;
+    margin-left: 7ch;
+}
+.heading-si
+{
+    height: 50px;
+    display: flex;
+    justify-content:space-between;
+}
+.login-si
+{
+    margin-left: 6ch;
+    font-size: 20px;
+    cursor: pointer;
+
+
+}
+.signup-si{
+    font-size: 20px;
+    color: gray;
+    cursor: pointer;
+    margin-right: 2ch;
+
+}
+.Uname-si {
+    width: 17vw;
+    height: 4vh;
+}
+.signin-info
+{
+    /* margin-top: 4ch; */
+    margin-left: 7ch;
+    flex-direction: column;
+}
+#submit-si {
+    width: 17.5vw;
+    height: 5vh;
+    color: #e0e0e0;
+    background-color: rgb(119, 3, 3);
+}
+.dash-si
+{
+    width: 18px;
+    height: 6px;
+    background-color: rgb(119, 3, 3);
+    margin-left: 3.5ch;
+}
+.forget{
+
+    margin-left: 18ch;
+    margin-top: 0ch;
+}
+.or:before{
+    
+    content: " ";
+    display: block;
+    height: 1px;
+    width: 80px;
+    position: absolute;
+    top: 50%;
+    margin-left: 20px;
+    left: 0;
+    background-color: black;
+
+}
+.or{
+    position: relative;
+    text-align: center;
+}
+.or:after
+{
+    content: " ";
+    display: block;
+    height: 1px;
+    width: 80px;
+    position: absolute;
+    top: 50%;
+    margin-right: 20px;
+    right: 0;
+    background-color: black; 
+}
+.loginways{
+    display: flex;
+    justify-content: space-between;
+}
+#flink{
+    background-color: rgb(53, 53, 109);
+    color: #f7f2f2;
+    width: 8.5vw;
+}
+#glink{
+    width: 8.5vw;
+
+}
