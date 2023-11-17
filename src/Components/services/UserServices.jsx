@@ -13,7 +13,7 @@ export const adminsignup = async(obj) => {
     return response;
 }
 export const signin = (obj) => {
-    let response =  axios.post("https://localhost:44348/api/User/AdminRegister", obj);
+    let response =  axios.post("https://localhost:44348/api/User/Login", obj);
     return response;
 }
 

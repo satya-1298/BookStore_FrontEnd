@@ -2,8 +2,8 @@
 {
     display:flex;
     justify-content:center;
-    margin-top:17ch ;
-    margin-left: 10ch;
+     margin-top:17ch ;
+   /* margin-left: 10ch; */
     width:45vw;
     height: 60vh;
     /* border: 1px solid black; */
@@ -14,11 +14,12 @@
     display: flex;
     border:  1px solid white;
     width: 25vw;
-    height: 65vh;
+    height: auto;
+    padding-bottom: 4vh;
     /* z-index: -1px; */
     position: absolute;
     margin-left: 39ch;
-    background-color: rgb(255, 255, 250);
+    background-color:white;
     border-radius: 20px;
     box-shadow: 0px 4px 6px rgba(1, 1, 1, 2);
 }
@@ -31,7 +32,7 @@
     height: 55vh;
     position: relative;
     margin-right: 30ch;
-    background-color: rgb(255, 255, 250);
+    background-color:white;
     border-radius: 20px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
     flex-direction: column;
@@ -94,6 +95,7 @@
     width: 17vw;
     height: 4vh;
     color: #e0e0e0;
+    /* padding-bottom:; */
     background-color: rgb(119, 3, 3);
 }
 .dash
@@ -101,17 +103,87 @@
     width: 18px;
     height: 6px;
     background-color: rgb(119, 3, 3);
-    margin-left: 26ch;
+    margin-left: 28ch;
 }
 .uerror{
     color: red;
 }
-#filled-basic{
+/* .input-s{
      border: 1px solid black;
      width: 17vw;
      border-radius: 4px;
-     /* height: 2px; */
+     /* height: 2px; 
      display: flex;
      justify-content: center;
      padding: 10px;
+} */
+#userName {
+    border: 1px solid black;
+    width: 17vw;
+    border-radius: 4px;
+    /* height: 2px; */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+}
+#password{
+    border: 1px solid black;
+    width: 17vw;
+    border-radius: 4px;
+    /* height: 2px; */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+}
+#email{
+    border: 1px solid black;
+    width: 17vw;
+    border-radius: 4px;
+    /* height: 2px; */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+
+
+}
+#phone{
+    border: 1px solid black;
+    width: 17vw;
+    border-radius: 4px;
+    background-color: white;
+    /* height: 2px; */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+}
+@media screen and (max-width: 700px) {
+    /* Adjustments for small screens */
+    .Main-SignUp, .signup-container ,.dash{
+        width: auto;
+        margin-top: 0px;
+        margin-right: 0px;
+    }
+    .photo-container, .pic-div {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+    }
+    .Uname, #userName, #password, #email, #phone, #submit-su {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1300px) {
+    /* Adjustments for medium-sized screens */
+    .Main-SignUp, .signup-container {
+        width: auto;
+        margin-top: 0px;
+    }
+    .Uname, #userName, #password, #email, #phone, #submit-su {
+        width: 225px;
+    }
 }

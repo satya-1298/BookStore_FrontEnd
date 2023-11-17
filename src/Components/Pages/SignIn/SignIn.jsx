@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import './SignIn.css'
 import Logo from '../../Asserts/Logo.png'
+import { signin } from '../../services/UserServices';
+import { TextField, Button } from '@mui/material';
+
 const RegEmail = new RegExp('[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
 const RegPassword = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{8,}$');
 
@@ -29,10 +32,17 @@ function SignIn(props) {
     }
     console.log(val)
 
-    const Validation = () => {
+    const Validation = (e) => {
+        e.preventDefault();
         let validUserName = RegEmail.test(val.email)
         if (validUserName === false) {
-           <label>Invalid UserName</label>
+            setRegdata(preState => (
+                {
+                    ...preState,
+                    emailBoarder: true,
+                    emailhelper: 'Invalid UserName'
+                }
+            ))        
         }
         let validpassword = RegPassword.test(val.password)
         if (validpassword === false) {
@@ -43,6 +53,15 @@ function SignIn(props) {
                     passwordhelper: 'Invalid Password'
                 }
             ))
+        }
+        if (validUserName == true && validpassword == true) {
+            signin(val).then((response) => {
+                console.log(response)
+                localStorage.setItem("Token", response.data.data)
+                // navigate("/dashboard")
+            })
+            console.log("hghhg")
+            console.log(regdata)
         }
       
     }
@@ -74,16 +93,18 @@ function SignIn(props) {
                             <div>
                                 <br />
                                 <label >Email</label><br />
-                                <input type='Email' className="Uname-si" placeholder='Email' onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper}/><br /><br />
+                                <TextField id="email" variant="filled"  autoComplete='off'  className='input-s'  onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper} /><br/>
+                                {/* <input type='Email' className="Uname-si" placeholder='Email' onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper}/><br /><br /> */}
                                 <label  >Password</label><br />
-                                <input type="Password" className="Uname-si" placeholder='Password' onChange={handleChange.handlePassword} error={regdata.passwordBoarder} helperText={regdata.passwordhelper}/>
+                                <TextField id="password" variant="filled"  autoComplete='off'  className='input-s' onChange={handleChange.handlePassword} error={regdata.passwordBoarder} helperText={regdata.passwordhelper}  /><br/>
+                                {/* <input type="Password" className="Uname-si" placeholder='Password' onChange={handleChange.handlePassword} error={regdata.passwordBoarder} helperText={regdata.passwordhelper}/> */}
                                 <p className='forget'>Forget Password?</p>
                                 <input type="submit" id='submit-si' value="Login" onClick={Validation}  /><br/><br/>
                                 <p className='or'><b>OR</b></p><br/>
                             </div>
                             <div className='loginways'>
-                            <input type="submit" id='flink' value="Facebook" /><br/><br/>
-                            <input type="submit" id='glink' value="Google" /><br/><br/>
+                            <input type="button" id='flink' value="Facebook" /><br/><br/>
+                            <input type="button" id='glink' value="Google" /><br/><br/>
 
                             </div>
                         </div>

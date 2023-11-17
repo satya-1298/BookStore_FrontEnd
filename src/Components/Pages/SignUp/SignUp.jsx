@@ -1,22 +1,33 @@
 import React, { useState } from 'react'
 import './SignUp.css'
-import { TextField, Button } from '@mui/material';
-import {usersignup} from '../../services/UserServices'
+import { TextField} from '@mui/material';
+import { usersignup } from '../../services/UserServices'
 import Logo from '../../Asserts/Logo.png'
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 const RegUserName = /^([A-Z]{1}[a-z,A-Z]{2,})$/;
 const RegEmail = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
 const RegPassword = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=()])([a-zA-Z\d@#$%^&+=()]*).{8,}$/;
-const RegPhone=/^([0-9]{10}$)/;
+const RegPhone = /[0-9]{10,}$/;
 
 
 function SignUp(props) {
-    const [data, setData] = useState({  userName: '', email: '', password: '' });
+    const [data, setData] = useState({ userName: '', phoneNumber: '', email: '', password: '' });
     const [regobj, setRegobj] = useState({
         userNameBoarder: false, userNameHelper: '',
-        emailBoarder: false, emailHelper: '', passwordBoarder: false, password_Helper: ''
+        emailBoarder: false, emailHelper: '', passwordBoarder: false, password_Helper: '',
+        phoneBoarder:false,phoneHelper:''
+        
     })
+    const [value, setValue] = useState('Customer');
+
+    const handleChange = (event) => {
+      setValue(event.target.value);
+    };
+  
     const changeHandle = {
-      
+
 
         changeUserName: (e) =>
             setData(prevState => (
@@ -40,12 +51,24 @@ function SignUp(props) {
                     ...prevState,
                     password: e.target.value
                 }
-            ))
+            )),
+        changePhone: (e) =>( 
+              setData(prevState => (
+            {
+            
+                ...prevState,
+                phoneNumber: e.target.value
+            }
+        ))
+        )
+          
+
 
     }
     console.log(data);
-    const verifyValidation = () => {
-        let validateUserName = RegUserName .test(data.userName)
+    const verifyValidation = (e) => {
+        e.preventDefault();
+        let validateUserName = RegUserName.test(data.userName)
         if (validateUserName === false) {
             setRegobj(prevState => (
                 {
@@ -55,6 +78,8 @@ function SignUp(props) {
                 }
             ))
         }
+        console.log('Data:', data);
+
         let validEmail = RegEmail.test(data.email)
         if (validEmail === false) {
             setRegobj(prevState => (
@@ -76,10 +101,22 @@ function SignUp(props) {
                 }
             ))
         }
-        if (validateUserName === true && validEmail === true && validatePassword === true) {
+        let validatePhone=RegPhone.test(data.phoneNumber)
+        if(validatePhone===false)
+        {
+            setRegobj(prevState=>(
+                {
+                    ...prevState,
+                    phoneHelper:'invalid',
+                    phoneBoarder:true
+                }
+            ))
+        }
+        if (validateUserName === true && validatePhone===true && validEmail === true && validatePassword === true ) {
+          console.log("phone",data);
             usersignup(data).then((response) => {
                 console.log(response)
-             
+                console.log("hello")
             }).catch((error) => {
                 console.log(error)
             })
@@ -103,7 +140,7 @@ function SignUp(props) {
                 <form className='signup-container'>
                     <div>
                         <div className='heading-su'>
-                            <h2 className='login'  onClick={()=>{
+                            <h2 className='login' onClick={() => {
                                 props.handleToggle();
                             }}><b>LOGIN</b></h2>
                             <h2 className='signup'><b>SIGNUP</b></h2>
@@ -115,24 +152,36 @@ function SignUp(props) {
                             </div>
                             <div>
                                 <br />
-                                <label >User Name:</label><br />
-                                <TextField id="filled-basic" variant="filled" onChange={changeHandle.changeUserName} error={regobj.userNameBoarder} helperText={regobj.userNameHelper} autoComplete='off'  /><br/>
+                                <label >UserName:</label><br />
+                                <TextField id="userName" variant="filled" onChange={changeHandle.changeUserName} error={regobj.userNameBoarder} helperText={regobj.userNameHelper} autoComplete='off' className='input-s' /><br />
 
                                 {/* <input type="text"  className="Uname" onChange={changeHandle.changeUserName} error={regobj.userNameBoarder} helperText={regobj.userNameHelper}  /><br /><br /> */}
-                                <label >phoneNumber</label><br />
-                                <TextField id="filled-basic" variant="filled"  autoComplete='off'  /><br/>
+                                <label >PhoneNumber</label><br />
+                                <TextField id="phone" variant="filled" autoComplete='off' className='input-s' onChange={changeHandle.changePhone} error={regobj.phoneBoarder} helperText={regobj.phoneHelper} /><br />
 
-                                {/* <input type="PhoneNumber" id='phone' className="Uname" /><br /><br /> */}
+                                {/* <input type="phoneNo" id='phone' className="Uname" /><br /><br /> */}
                                 <label >Email</label><br />
-                                <TextField id="filled-basic" variant="filled"  autoComplete='off'  /><br/>
+                                <TextField type='email' id="email" variant="filled" onChange={changeHandle.changeEmail} error={regobj.emailBoarder} helperText={regobj.emailHelper} autoComplete='off' className='input-s' /><br />
                                 <label  >Password</label><br />
-                                <TextField id="filled-basic" variant="filled"  autoComplete='off'  onChange={changeHandle.changePassword}  error={regobj.passwordBoarder} helperText={regobj.password_Helper} /><br/><br/>
-                                <label>Choose a Role</label><br/>
-                                <input type="radio" id="admin"  value="Admin" />
+                                <TextField type='password' id="password" variant="filled" autoComplete='off' onChange={changeHandle.changePassword} error={regobj.passwordBoarder} helperText={regobj.password_Helper} className='input-s' /><br /><br />
+                                <label><b>Choose a Role</b></label><br />
+                                {/* <input type="radio" id="admin"  value="Admin" />
                                 <label >Admin</label>
                                 <input type="radio" id="customer"  value="Customer" />
-                                <label >Customer</label><br/><br/>
-                                <input type="submit" id='submit-su' value="SignUp" onClick={verifyValidation}/>
+                                <label >Customer</label><br/><br/> */}
+                                <RadioGroup
+                                    aria-labelledby="demo-controlled-radio-buttons-group"
+                                    name="controlled-radio-buttons-group"
+                                    value={value}
+                                    onChange={handleChange}
+                                   
+                                >
+                                    <div>
+                                    <FormControlLabel value="Admin" control={<Radio />} label="Admin" />
+                                    <FormControlLabel value="Customer" control={<Radio />} label="Customer" />
+                                    </div>
+                                </RadioGroup>
+                                <input type="submit" id='submit-su' value="SignUp" onClick={verifyValidation} />
                             </div>
                         </div>
                     </div>
