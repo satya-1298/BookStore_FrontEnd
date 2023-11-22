@@ -16,4 +16,8 @@ export const signin = (obj) => {
     let response =  axios.post("https://localhost:44348/api/User/Login", obj);
     return response;
 }
+export const forget=(obj)=>{
+    let response=axios.post("https://localhost:44348/api/User/ForgetPassword",obj);
+    return response;
+}
 

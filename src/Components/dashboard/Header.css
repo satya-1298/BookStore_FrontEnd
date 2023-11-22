@@ -1,0 +1,84 @@
+.img-h {
+    margin-left: 20ch;
+    margin-right: 1ch;
+    margin-bottom: 0.3ch;
+}
+
+.tool-h {
+    background-color: #A03037;
+    width: 100vw;
+}
+
+.serach-h {
+    color: black;
+}
+
+.profile-h {
+    padding-left: 2ch;
+    padding-right: 2ch;
+   
+}
+
+.cart-h {
+ padding-left: 2ch;
+ padding-right: 2ch;
+}
+
+.icon-box {
+    margin-right: 30ch;
+}
+
+.vertical {
+    height: 10vh;
+    border:1px solid rgb(58, 54, 54);
+}
+.label-h{
+    padding: 20px;
+}
+.button-h{
+  background-color: white;
+  color: #000;
+}
+.wish-h{
+    display: flex;
+
+}
+.order-h{
+    display: flex;
+}
+.profile-lh {
+    padding-left: 2ch;
+    padding-right: 2ch;
+    display: flex;
+
+
+}
+.list-lh {
+    padding-left: 2ch;
+    padding-right: 2ch;
+    display: flex;
+
+}
+
+.order-lh {
+    padding-left: 2ch;
+    padding-right: 2ch;
+    display: flex;
+   
+}
+.label-lh{
+    padding: 20px;
+}
+.untoken{
+    font-size: 15px;
+    margin-top: -1ch;
+}
+.cart-p
+{
+    font-size: 15px;
+    margin-top: -1ch; 
+}
+
+
+
+

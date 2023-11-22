@@ -1,0 +1,61 @@
+.Main-forget{
+    width: 40vw;
+    height: 60vh;
+    margin-left: 60ch;
+    margin-top: 20ch;
+    justify-content: center;
+    /* background-color: blue; */
+}
+.forget-info
+{
+    border: 1px solid #E4E4E4;
+    width: 30vw;
+    height: 45vh;
+    margin-left: 9ch;
+    /* background-color:white; */
+    /* background-color: burlywood */
+}
+.email-f{
+    /* background-color: aqua; */
+    width: 20vw;
+    margin-left: 10ch;
+}
+.create-f
+{
+    text-align: center;
+    height: 12vh;
+    /* margin-top: 3ch; */
+    background-color: #e5e5e5 ;
+    width: 30vw;
+
+}
+.heading-f{
+    text-align: center;
+    margin-right: 3ch;
+}
+.text-f{
+    padding-top: 3ch;
+}
+#submit-f {
+    width: 20vw;
+    height: 5vh;
+    color: #e0e0e0;
+    background-color: rgb(119, 3, 3);
+}
+#email-f{
+    border: 1px solid black;
+    width: 18.7vw;
+    border-radius: 4px;
+    /* height: 2px; */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+
+
+}
+.para-f
+{
+    color: grey;
+}
+

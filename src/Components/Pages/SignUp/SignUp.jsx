@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './SignUp.css'
+import {  useNavigate } from "react-router-dom"
 import { TextField} from '@mui/material';
 import { usersignup } from '../../services/UserServices'
 import Logo from '../../Asserts/Logo.png'
@@ -25,7 +26,8 @@ function SignUp(props) {
     const handleChange = (event) => {
       setValue(event.target.value);
     };
-  
+    const navigate = useNavigate()
+
     const changeHandle = {
 
 
@@ -117,10 +119,19 @@ function SignUp(props) {
             usersignup(data).then((response) => {
                 console.log(response)
                 console.log("hello")
+                navigate("/signIn")
             }).catch((error) => {
                 console.log(error)
+                if (error.response && error.response.status === 400) {
+                    setRegobj((prevState) => ({
+                        ...prevState,
+                        emailBoarder: true,
+                        emailHelper: 'Email already exists',
+                    }));
+                }
             })
         }
+        
     }
 
     return (
@@ -140,9 +151,11 @@ function SignUp(props) {
                 <form className='signup-container'>
                     <div>
                         <div className='heading-su'>
-                            <h2 className='login' onClick={() => {
-                                props.handleToggle();
-                            }}><b>LOGIN</b></h2>
+                            <h2 className='login' ><a href='\signIn'
+                              style={{
+                                textDecoration:"none",
+                                color:"gray"
+                            }}><b>LOGIN</b></a></h2>
                             <h2 className='signup'><b>SIGNUP</b></h2>
 
                         </div>

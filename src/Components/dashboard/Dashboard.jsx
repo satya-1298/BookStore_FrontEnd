@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
 import SignUp from '../Pages/SignUp/SignUp';
 import SignIn from '../Pages/SignIn/SignIn';
+import Header from './Header';
 
 function Dashboard() {
-    const[sign,setSign]=useState(true);
-    const handleToggle=()=>{
-        setSign(!sign)
-    }
   return (
     <div>
-        {
-            sign ? <SignUp handleToggle={handleToggle}/>:<SignIn handleToggle={handleToggle}/>
-        }
+      <Header/>
     </div>
   )
 }

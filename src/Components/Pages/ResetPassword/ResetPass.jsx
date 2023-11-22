@@ -3,19 +3,16 @@ import './SignIn.css'
 import Logo from '../../Asserts/Logo.png'
 import { signin } from '../../services/UserServices';
 import { TextField, Button } from '@mui/material';
-import { useNavigate } from "react-router-dom"
+import {  useNavigate } from "react-router-dom"
 
 
-const RegEmail = new RegExp('[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
 const RegPassword = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{8,}$');
 
-function SignIn(props) {
-    const [val, setVal] = useState({ email: '', password: '' });
-    const [regdata, setRegdata] = useState({ emailBoarder: false, emailhelper: '', passwordBoarder: false, passwordhelper: '' });
+function ResetPass(props) {
+    const [val, setVal] = useState({ password: '', confirmPassword: '' });
+    const [regdata, setRegdata] = useState({  passwordBoarder: false, passwordhelper: '' });
     const navigate = useNavigate()
-    const forget = () => {
-        navigate = ("/forgetpassword")
-    }
+
     const handleChange = {
         handleUserName: (e) =>
 
@@ -48,7 +45,7 @@ function SignIn(props) {
                     emailBoarder: true,
                     emailhelper: 'Invalid UserName'
                 }
-            ))
+            ))        
         }
         let validpassword = RegPassword.test(val.password)
         if (validpassword === false) {
@@ -64,24 +61,16 @@ function SignIn(props) {
             signin(val).then((response) => {
                 console.log(response)
                 localStorage.setItem("Token", response.data.data)
-                navigate("/dashboard")
-            }).catch((error) => {
-                console.log(error)
-                if (error.response && error.response.status === 400) {
-                    setRegdata((prevState) => ({
-                        ...prevState,
-                        passwordBoarder: true,
-                        passwordhelper: 'wrong email or password',
-                    }));
-                }
+                 navigate("/dashboard")
             })
+            
             console.log("hghhg")
             console.log(regdata)
         }
-
+      
     }
-    return (
-        <div className='main-si'>
+  return (
+    <div className='main-si'>
             <div className='Main-SignIn'>
 
                 <div className='photo-container-si'>
@@ -97,10 +86,10 @@ function SignIn(props) {
                         <div className='heading-si'>
                             <h2 className='login-si'><b>LOGIN</b></h2>
                             <h2 className='signup-si'><a href='\signUp'
-                                style={{
-                                    textDecoration: "none",
-                                    color: "gray"
-                                }}><b>SIGNUP</b></a></h2>
+                            style={{
+                                textDecoration:"none",
+                                color:"gray"
+                            }}><b>SIGNUP</b></a></h2>
 
                         </div>
                         <div className='signin-info'>
@@ -109,23 +98,19 @@ function SignIn(props) {
                             </div>
                             <div>
                                 <br />
-                                <label >Email</label><br />
-                                <TextField id="email" variant="filled" autoComplete='off' className='input-s' onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper} /><br />
+                                <label >Password</label><br />
+                                <TextField id="email" variant="filled"  autoComplete='off'  className='input-s'  onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper} /><br/>
                                 {/* <input type='Email' className="Uname-si" placeholder='Email' onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper}/><br /><br /> */}
-                                <label  >Password</label><br />
-                                <TextField id="password" variant="filled" autoComplete='off' className='input-s' onChange={handleChange.handlePassword} error={regdata.passwordBoarder} helperText={regdata.passwordhelper} /><br />
+                                <label  >ConfirmPassword</label><br />
+                                <TextField id="password" variant="filled"  autoComplete='off'  className='input-s' onChange={handleChange.handlePassword} error={regdata.passwordBoarder} helperText={regdata.passwordhelper}  /><br/>
                                 {/* <input type="Password" className="Uname-si" placeholder='Password' onChange={handleChange.handlePassword} error={regdata.passwordBoarder} helperText={regdata.passwordhelper}/> */}
-                                <p className='forget'><a href='/forgetpassword'
-                                    style={{
-                                        textDecoration: "none",
-                                        color: "gray"
-                                    }}>Forget Password?</a></p>
-                                <input type="submit" id='submit-si' value="Login" onClick={Validation} /><br /><br />
-                                <p className='or'><b>OR</b></p><br />
+                                <p className='forget'>Forget Password?</p>
+                                <input type="submit" id='submit-si' value="Login" onClick={Validation}  /><br/><br/>
+                                <p className='or'><b>OR</b></p><br/>
                             </div>
                             <div className='loginways'>
-                                <input type="button" id='flink' value="Facebook" /><br /><br />
-                                <input type="button" id='glink' value="Google" /><br /><br />
+                            <input type="button" id='flink' value="Facebook" /><br/><br/>
+                            <input type="button" id='glink' value="Google" /><br/><br/>
 
                             </div>
                         </div>
@@ -133,7 +118,7 @@ function SignIn(props) {
                 </form>
             </div>
         </div>
-    )
+  )
 }
 
-export default SignIn
+export default ResetPass
