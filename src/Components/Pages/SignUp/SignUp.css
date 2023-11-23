@@ -11,6 +11,8 @@
 }
 .signup-container
 {
+    /* border: 1px solid rgb(148, 54, 54); */
+
     display: flex;
     border:  1px solid white;
     width: 25vw;

@@ -20,7 +20,10 @@ import { Button } from '@mui/material';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import { useNavigate } from "react-router-dom"
 import { jwtDecode } from 'jwt-decode';
-
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { grey } from '@mui/material/colors';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -247,7 +250,7 @@ export default function Header() {
     );
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1,backgroundColor:'white' ,width:'100vw' }}>
             <AppBar position="static" >
                 <Toolbar className='tool-h'>
                     <img src={Book} width={29} height={23} className='img-h' ></img>
@@ -255,7 +258,6 @@ export default function Header() {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ display: { xs: 'none', sm: 'block' }, marginRight: '2ch' }}
                     >
                         BookStore
                     </Typography>
@@ -291,8 +293,8 @@ export default function Header() {
 
                         >
                             <div>
-                            <PermIdentityIcon className='profile-h' />
-                            <p className='untoken'>{usernameToken()}</p>
+                                <PermIdentityIcon className='profile-h' />
+                                <p className='untoken'>{usernameToken()}</p>
                             </div>
                         </IconButton>
                         <div className='vertical'>
@@ -301,8 +303,8 @@ export default function Header() {
                         <IconButton
                             color='inherit'>
                             <div>
-                            <ShoppingCartOutlinedIcon className='cart-h' />
-                            <p className='cart-p'>Cart</p>
+                                <ShoppingCartOutlinedIcon className='cart-h' />
+                                <p className='cart-p'>Cart</p>
                             </div>
                         </IconButton>
                     </Box>
@@ -322,6 +324,36 @@ export default function Header() {
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
+            <div className='sort-f'>
+                <div style={{
+                    display:'flex'
+                }}>
+                    <div  className="BookHeading" >
+                        <h1>Books</h1>
+                    </div>
+                    <div className='items-h'>
+                        <p>(items)</p>
+                    </div>
+                </div>
+                <div class="dropdown" >
+                    <FormControl sx={{ m: 1, minWidth: 120 }}>
+                        <Select
+                            value="Sort" // Set the default value to "Sort"
+                            inputProps={{ 'aria-label': 'Without label' }}
+                            
+                        >
+                            <MenuItem value="Sort">
+                                Sort by relevence
+                            </MenuItem>
+                            <MenuItem >Price: Low to High</MenuItem>
+                            <MenuItem >Price: High to Low</MenuItem>
+                            <MenuItem>Newest Arrivals</MenuItem>
+
+                        </Select>
+                    </FormControl>
+
+                </div>
+            </div>
         </Box>
     );
 }

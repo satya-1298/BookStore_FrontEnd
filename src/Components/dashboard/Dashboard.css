@@ -1,0 +1,8 @@
+.books-home{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    background-color:white;
+    height: 100%;
+    padding: 5ch;
+}

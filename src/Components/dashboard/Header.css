@@ -78,7 +78,30 @@
     font-size: 15px;
     margin-top: -1ch; 
 }
-
+.sort-f{
+    display: flex;
+    /* justify-content: space-between; */
+}
+.dropdown{
+    margin-left: 140ch;
+}
+.items-h{
+    margin-Top:2.5ch;
+    size:3px;
+    color:grey
+}
+.BookHeading{
+    margin-left: 10ch;
+}
+@media screen and (min-width: 300px) and (max-width: 800px) {
+    .dropdown,.BookHeading{
+        margin-left: 9px;
+       
+    }
+    .img-h{
+        margin: 0;
+    }
+}
 
 
 

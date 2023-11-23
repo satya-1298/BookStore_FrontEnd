@@ -10,6 +10,7 @@ function Router() {
     return (
         <BrowserRouter>
             <Routes>
+            <Route exact path={"/"} element={<SignIn />}/>
                 <Route exact path={"/signIn"} element={<SignIn />}/>
                 <Route exact path={"/signUp"} element={<SignUp />}/>
                 <Route exact path={"/dashboard"} element={<Dashboard />} />

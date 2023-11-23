@@ -47,20 +47,23 @@ function ForgetPass() {
         }
 
         if (validUserName == true) {
-            forget(val).then((response) => {
-                console.log(response)
-                localStorage.setItem("Token", response.data.data)
-                // navigate("/signIn")
-            }).catch((error) => {
-                console.log(error)
 
-            })
-            console.log(regdata)
+
+            console.log(val); // Add this line to check the form data
+            forget(val)
+                .then((response) => {
+                    console.log(response);
+                    localStorage.setItem("Token", response.data.data);
+                    // navigate("/signIn")
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         }
 
     }
     return (
-        <Box sx={{ flexGrow: 1,backgroundColor:'white' }}>
+        <Box sx={{ flexGrow: 1, backgroundColor: 'white' }}>
             <AppBar position="static" >
                 <Toolbar className='tool-h'>
                     <img src={Book2} width={29} height={23} className='img-h' ></img>
@@ -72,43 +75,43 @@ function ForgetPass() {
                     >
                         BookStore
                     </Typography>
-                   
+
                 </Toolbar>
             </AppBar>
             <div className='main-f'>
-                        <div className='Main-forget'>
+                <div className='Main-forget'>
 
 
-                            <form className='pass-f'>
-                                <div>
-                                    <div >
-                                        <h2 className='heading-f'><b>Forgot Your Password?</b></h2>
+                    <form className='pass-f'>
+                        <div>
+                            <div >
+                                <h2 className='heading-f'><b>Forgot Your Password?</b></h2>
 
 
-                                    </div>
-                                    <div className='forget-info'>
+                            </div>
+                            <div className='forget-info'>
 
-                                        <div className='email-f'>
-                                            <p className='para-f'>Enter your email address and we'll send you a link to reset your password.</p>
-                                            <br />
-                                            <label >Email</label><br />
-                                            <TextField id="email-f" variant="filled" autoComplete='off'  onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper} /><br /><br />
-                                            {/* <input type='Email' className="Uname-si" placeholder='Email' onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper}/><br /><br /> */}
-                                            <input type="submit" id='submit-f' value="Reset Password" onClick={Validation} /><br />
+                                <div className='email-f'>
+                                    <p className='para-f'>Enter your email address and we'll send you a link to reset your password.</p>
+                                    <br />
+                                    <label ><b>Email</b></label><br />
+                                    <TextField id="email-f" variant="filled" autoComplete='off' onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper} /><br /><br />
+                                    {/* <input type='Email' className="Uname-si" placeholder='Email' onChange={handleChange.handleUserName} error={regdata.emailBoarder} helperText={regdata.emailhelper}/><br /><br /> */}
+                                    <input type="submit" id='submit-f' value="Reset Password" onClick={Validation} /><br />
 
-                                        </div><br />
-                                        <div className='create-f'>
-                                            <h3 className='text-f'>CREATEACCOUNT</h3>
-                                        </div>
-
-                                    </div>
+                                </div><br />
+                                <div className='create-f'>
+                                    <h3 className='text-f'>CREATEACCOUNT</h3>
                                 </div>
-                            </form>
+
+                            </div>
                         </div>
-                    </div>
+                    </form>
+                </div>
+            </div>
 
         </Box>
-        
+
     )
 }
 
