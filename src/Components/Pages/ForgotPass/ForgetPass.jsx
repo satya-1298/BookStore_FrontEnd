@@ -101,7 +101,10 @@ function ForgetPass() {
 
                                 </div><br />
                                 <div className='create-f'>
-                                    <h3 className='text-f'>CREATEACCOUNT</h3>
+                                    <h3 className='text-f' > <a href='/signUp'   style={{
+                                    textDecoration: "none",
+                                    color: "gray"
+                                }}>CREATE ACCOUNT</a></h3>
                                 </div>
 
                             </div>

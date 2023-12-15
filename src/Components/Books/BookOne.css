@@ -1,0 +1,100 @@
+.img-o
+{
+    width: 281.62px;
+    height: 367px;
+    padding: 5ch;
+    border: 1px solid rgb(220, 216, 216);
+    margin-left: 20ch;
+}
+.Main-O
+{
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+}
+#addtobag{
+   margin-left: 22ch;
+   width: 10vw;
+   background-color: rgb(141, 20, 20);
+}
+#wishlist{
+    width:10.5vw;
+    margin-left: 2.8ch;
+    background-color: black;
+}
+.symbol{
+    width: 2vw;
+    
+   color: white
+}
+.container
+{
+    display: flex;
+
+}
+.title-o{
+    font-size: 28px;
+    font-family:Roboto, Regular
+}
+.rating-o{
+    display: flex;
+    margin-top: 2ch;
+}
+.rating-bno{
+    background-color: green;
+    color: white;
+    padding: 3px;
+}
+.stock
+{
+    font-size: small;
+    margin-top: 1ch;
+    margin-left: 1ch;
+}
+.price-o
+{
+    display: flex;
+    margin-top: 2ch;
+    
+}
+.discount-o{
+    margin-left: 1.5ch;
+    text-decoration: line-through;
+    margin-top: 1ch;
+}
+.price-rs{
+    font-size: 3ch;
+}
+.author-o{
+    margin-top: 1ch;
+}
+.discription-o{
+    margin-top: 2ch;
+    margin-bottom: 3ch;
+    width: 40vw;
+    color: grey;
+}
+.detail-o{
+    margin-left: 5ch;
+}
+.overall-o{
+    background-color: rgb(226, 225, 225);
+    padding: 10px;
+}
+.ov-heading{
+    color: grey;
+}
+.star-o{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+.writereview{
+    background-color: white;
+    height: 9ch;
+    color: grey;
+    padding: 1ch;
+}
+#submit-o{
+    padding: 2ch;
+    margin-left: 70ch;
+}

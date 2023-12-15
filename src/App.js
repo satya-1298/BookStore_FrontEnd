@@ -5,6 +5,7 @@ import Dashboard from './Components/dashboard/Dashboard';
 import Router from './Components/Route/Router';
 import Header from './Components/dashboard/Header';
 import ForgetPass from './Components/Pages/ForgotPass/ForgetPass';
+import BookOne from './Components/Books/BookOne';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <Router/>
     {/* <Header/> */}
     {/* <ForgetPass/> */}
+    {/* <BookOne/> */}
     </div>
   );
 }

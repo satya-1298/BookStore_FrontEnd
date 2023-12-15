@@ -66,7 +66,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function Header() {
+export default function Header({id,stockCount}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -253,11 +253,15 @@ export default function Header() {
         <Box sx={{ flexGrow: 1,backgroundColor:'white' ,width:'100vw' }}>
             <AppBar position="static" >
                 <Toolbar className='tool-h'>
-                    <img src={Book} width={29} height={23} className='img-h' ></img>
+                    <img src={Book} width={29} height={23} className='img-h'   onClick={()=>{id(null)}} ></img>
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
+                        onClick={()=>{id(null)}}
+                        sx={{
+                            cursor:'pointer'
+                        }}
                     >
                         BookStore
                     </Typography>
@@ -332,7 +336,7 @@ export default function Header() {
                         <h1>Books</h1>
                     </div>
                     <div className='items-h'>
-                        <p>(items)</p>
+                        <p>({stockCount} items)</p>
                     </div>
                 </div>
                 <div class="dropdown" >

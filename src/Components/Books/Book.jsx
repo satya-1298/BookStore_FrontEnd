@@ -6,7 +6,9 @@ import './Book.css'
 
 export default function Book(props) {
     return (
-        <div >
+        <div onClick={()=>{
+            props.id(props.data)
+        }} >
             <Box
                 sx={{
                     display: 'flex',
@@ -28,7 +30,7 @@ export default function Book(props) {
                             <div><b>{props.data.title}</b></div>
                             <div className='author'>{props.data.author}</div>
                             <div className='rating'>
-                                <div  className='rating-no' ><b>4.5 &#9733;</b></div>
+                                <div  className='rating-no' ><b>4.3 &#9733;</b></div>
                                 <div style={{fontSize:'small',marginTop:'1ch'}}>({props.data.quantityInStock})</div>
                             </div>
                             <div className='price-b'>

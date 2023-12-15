@@ -2,11 +2,13 @@
     margin-left: 20ch;
     margin-right: 1ch;
     margin-bottom: 0.3ch;
+    cursor: pointer;
 }
 
 .tool-h {
     background-color: #A03037;
     width: 100vw;
+    
 }
 
 .serach-h {
